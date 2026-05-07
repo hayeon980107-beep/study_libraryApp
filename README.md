@@ -64,3 +64,25 @@
   - 처럼 여러개의 후보군 중 하나를 가져오고 싶을 때 사용
   - 특별한 이름을 붙여, 특정 두개를 연결할 때 사용
   - primary < qualifier(의도적으로 명시한게 더 우세 함)
+
+### JPA ( JAVA Persistence API )
+- 자바 진영의 ORM (Object-Relational Mapping)
+- 객체와 관계형 DB의 테이블을 짝지어 데이터를 영구적으로 저장할 수 있도록 정해진 Java 진영의 규칙
+- HIBERNATE가 구현하고 있음 (Hibernate는 내부에 JDBC를 사용)
+- ddl-auto
+  - create: 기존 테이블이 있다면 삭제 후 다시 생성
+  - create-drop : 스프링이 종료될 때 테이블 모두 제거
+  - update : 객체와 테이블이 다른 부분만 변경
+  - validate: 객체와 테이블이 동일한지 확인
+  - none : 별다른 조치 안함
+- function
+  - save : 주어지는 객체를 저장하거나 업데이트 시켜준다.
+  - findAll : 주어지는 객체가 매핑된 테이블의 모든 데이터를 가져온다.
+  - findById : id를 기준으로 특정한 1개의 데이터를 가져온다.
+- SQL을 작성하지 않아도 동작하는 이유
+  - Spring Data JPA가 처리해줌
+
+### Spring Data JPA
+- 복잡한 JPA코드를 스프링과 함께 쉽게 사용할 수 있도록 도와주는 라이브러리
+- JPA를 감쌈
+  - Spring Data JPA > JPA(ORM) > Hibernate > JDBC

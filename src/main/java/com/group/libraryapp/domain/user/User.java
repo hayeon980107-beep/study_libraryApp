@@ -1,9 +1,21 @@
 package com.group.libraryapp.domain.user;
 
+import javax.persistence.*;
+
+@Entity
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id = null;
+
+    @Column(nullable = false, length = 20, name = "name") // name varchar(20), table의 컬럼과 이름이 같으면 name은 생략 가능
     private String name;
+
+    // table의 age와 객체의 age 는 완전히 동일하기 때문에 @Colum을 생략할 수 있다.
     private Integer age;
+
+    protected User() {}
 
     public User(String name, Integer age) {
         if(name == null || name.isBlank()) {
@@ -20,5 +32,13 @@ public class User {
 
     public Integer getAge() {
         return age;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void updateName(String name) {
+        this.name = name;
     }
 }
